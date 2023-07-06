@@ -1,0 +1,101 @@
+5a
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 style="color: green">
+        GeeksforGeeks
+    </h1>
+    <b>
+        How to remove a character from
+        a string using Javascript?
+    </b>
+    <p>Original string is GeeksforGeeks</p>
+    <p>
+        New String is:
+        <span class="output"></span>
+    </p>
+    <button onclick="removeCharacter()"> Remove Character</button>
+    <script type="text/javascript">
+        function removeCharacter() {
+            originalString = 'GeeksForGeeks';
+            newString = originalString.replace('G', '');
+            document.querySelector('.output').textContent
+                = newString;
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+5b
+
+var fs = require('fs'),
+ path = require("C:\Users\bejad\Downloads\dirTree.js");
+function dirTree(filename) {
+ var stats = fs.lstatSync(filename),
+ info = {
+ path: filename,
+ name: path.basename(filename)
+ };
+ if (stats.isDirectory()) {
+ info.type = "folder";
+ info.children = fs.readdirSync(filename).map(function(child) {
+ return dirTree(filename + '/' + child);
+ });
+ } else {
+ // Assuming it's a file. In real life it could be a symlink or
+ // something else!
+ info.type = "file";
+ }
+ return info;
+}
+if (module.parent == undefined) {
+ // node dirTree.js ~/foo/bar
+ var util = require('util');
+ console.log(util.inspect(dirTree(process.argv[2]), false, null));
+}
+
+
+
+7
+
+use <databasename>
+
+db.people.insert({ name: "Andrew", age: 33, hobbies: ["Coding", "Gaming", "Cooking"], hungry:
+false})
+
+Retrieve the data -->
+
+db.people.find()
+
+db.people.find().pretty()
+
+db.people.insert({ name: "Riley", age: 3, hobbies: ["Sleeping", "Barking", "Snuggles"], hungry:
+true})
+db.people.insert({ name: "You", age: 30, hobbies: ["Coding", "Reading DigitalOcean Articles",
+"Creating Droplets"], hungry: true})
+
+
+db.people.find({ hungry: true }).pretty()
+db.people.find({ hobbies: "Coding" }).pretty()
+
+
+Update -->
+
+db.people.update({ name: "You" }, {$set: { name: "Sammy" }})
+db.people.update({ name: "Sammy" }, {$push: { hobbies: "Typing furiously" }})
+
+delete -->
+
+db.people.remove({ _id: ObjectId("5c08cc2e3d828385a2162d96")})
+
