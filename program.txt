@@ -99,3 +99,43 @@ delete -->
 
 db.people.remove({ _id: ObjectId("5c08cc2e3d828385a2162d96")})
 
+
+5a
+
+function validatePhone(num){
+         const re =/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+         let result = re.test(num)
+         if (result){
+             console.log('vaild');
+             
+         }
+          else{
+              let num = prompt('Enter number');
+              validatePhone(num);
+         }
+         let number = prompt('Enter number');
+ }
+  validatePhone ()
+
+
+5b 
+
+const string = 'Find me';
+const pattern = /me/;
+
+const result1 = string.search(pattern);
+console.log(result1);
+
+const string1 = 'Find Me';
+string1.replace(pattern,'Found you');
+console.log(string1);
+ 
+const regex1 = /[\s,]+/;
+const result2 = 'Hello world!'.split(regex1);
+console.log(result2);
+
+const result3 = string.replace(/hello/i,'world');
+console.log(result3);
+
+const result4 = string.replace(/hello/gi, 'world');
+console.log (result4);
